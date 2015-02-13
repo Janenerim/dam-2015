@@ -66,9 +66,22 @@ li:last-child{
     color:blue;
 }
 
+.first p:first-of-type{
+    text-decoration:underline;
+}
 
 
+.first p span:first-child{
+    text-decoration:underline;
+    color:#CCC;
+}
 
+
+/*Con el siguiente selector dariamos fondo gris a las filas impares de una tabla*/
+
+table tr:nth-child(2n+1){
+    background-color: #CCC;
+}
 
 
 
