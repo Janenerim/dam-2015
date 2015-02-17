@@ -1,0 +1,64 @@
+body {
+    margin: 0px;
+}
+#container{
+    background: #666 url(../img/ej03_tree.jpg) no-repeat -60px 0;
+    width: 420px;
+    height: 480px;
+    position: relative;
+}
+.snowflake {
+    color: #fff;
+    font-size: 2em;
+    position: absolute;
+    animation-name: snowing, brise;
+    animation-iteration-count: infinite, infinite;
+}
+.snowflake.f1 {
+    left: 40px;
+    animation-duration: 11s, 5s;
+    animation-delay: 0.5s, 0.3s;
+    animation-timing-function: ease, ease-in-out;
+}
+.snowflake.f2 {
+    font-size: 1.8em;
+    left: 120px;
+    animation-duration: 7s, 3.5s;
+    animation-delay: 0s, 0.9s;
+    animation-timing-function: ease-in, ease-out;
+}
+.snowflake.f3 {
+    left: 200px;
+    animation-duration: 6s, 2.5s;
+    animation-delay: 2s, 2.3s;
+    animation-timing-function: ease-out, ease-in;
+}
+.snowflake.f4 {
+    font-size: 1.5em;
+    left: 280px;
+    animation-duration: 9s, 4s;
+    animation-delay: 1.5s, 1.9s;
+    animation-timing-function: ease-in-out, ease;
+}
+
+@keyframes snowing{
+    from{
+        margin-top:-10%;
+    }
+
+    to{
+        margin-top:120%;
+    }
+}
+
+@keyframes brise{
+    from{
+        padding-left:0px;
+    }
+    50%{
+        padding-left:70px;
+    }
+    to{
+        padding-left:0px;
+    }
+}

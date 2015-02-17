@@ -51,3 +51,10 @@
 .ex04 .box:hover{
     transform: translate(450px, -100px) scale(0.5, 0.5) rotate(270deg);
 }
+
+
+/*añadido para poder navegar por los ejercicios*/
+.volver{
+    position: fixed;
+    bottom:0;
+}
