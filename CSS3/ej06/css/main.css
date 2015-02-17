@@ -8,37 +8,43 @@ body {
     position: relative;
 }
 .snowflake {
+    opacity:0;
     color: #fff;
     font-size: 2em;
     position: absolute;
-    animation-name: snowing, brise;
-    animation-iteration-count: infinite, infinite;
+    animation-name: snowing, brise, fade;
+    animation-iteration-count: infinite, infinite, infinite;
+    transform-origin: 0 0;
+    transition-property: transform:rotate;
+    transition-duration: 5s;
+    transition-timing-function: linear;
+
 }
 .snowflake.f1 {
     left: 40px;
-    animation-duration: 11s, 5s;
-    animation-delay: 0.5s, 0.3s;
-    animation-timing-function: ease, ease-in-out;
+    animation-duration: 11s, 5s, 11s;
+    animation-delay: 0.5s, 0.3s, 0.5s;
+    animation-timing-function: ease, ease-in-out, ease;
 }
 .snowflake.f2 {
     font-size: 1.8em;
     left: 120px;
-    animation-duration: 7s, 3.5s;
-    animation-delay: 0s, 0.9s;
-    animation-timing-function: ease-in, ease-out;
+    animation-duration: 7s, 3.5s, 7s;
+    animation-delay: 0s, 0.9s, 0s;
+    animation-timing-function: ease-in, ease-out, ease;
 }
 .snowflake.f3 {
     left: 200px;
-    animation-duration: 6s, 2.5s;
-    animation-delay: 2s, 2.3s;
-    animation-timing-function: ease-out, ease-in;
+    animation-duration: 6s, 2.5s, 6s;
+    animation-delay: 2s, 2.3s, 2s;
+    animation-timing-function: ease-out, ease-in, ease;
 }
 .snowflake.f4 {
     font-size: 1.5em;
     left: 280px;
-    animation-duration: 9s, 4s;
-    animation-delay: 1.5s, 1.9s;
-    animation-timing-function: ease-in-out, ease;
+    animation-duration: 9s, 4s, 9s;
+    animation-delay: 1.5s, 1.9s, 1.5s;
+    animation-timing-function: ease-in-out, ease, ease;
 }
 
 @keyframes snowing{
@@ -54,11 +60,32 @@ body {
 @keyframes brise{
     from{
         padding-left:0px;
+        transform: rotate(0);
     }
     50%{
         padding-left:70px;
+        transform: rotate(90deg);
     }
     to{
         padding-left:0px;
+        transform: rotate(0);
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+    }
+    20%{
+        opacity:.8;
+    }
+    50%{
+        opacity: 1;
+    }
+    80%{
+        opacity: .8;
+    }
+    to{
+        opacity:0;
     }
 }
