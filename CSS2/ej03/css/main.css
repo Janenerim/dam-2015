@@ -8,13 +8,14 @@ ul, ul li { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, p, form { margin: 0; padding: 0; }
 .clear { clear: both; }
 img { border: none; }
-
+*{box-sizing: content-box;}
 /*-- Layout ----------------------------------------------------------*/
 .contenedor {
   width: 90%;
   max-width: 900px;
   width: expression(document.body.clientWidth > 901? "900px": "auto");
   margin: 0 auto;
+  
 }
 
 .cabecera, .menu, .lateral, .contenido, .contenido .principal, .contenido .secundario, .pie {
