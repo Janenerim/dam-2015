@@ -10,21 +10,27 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
 <body>
-    <div class="header navbar navbar-inverse fixed-top">   
-        <div class="container">
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Brand</a>
-    </div>
-            <h1>Blasting Off With Boostrap</h1>
+    <div class="header"> 
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Blasting Off With Boostrap</a>
+                </div>
 
-        
-        </div> 
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="tour.html">Take a Tour</a></li>
+                        <li><a href="buy.html">Buy Tickets</a></li>
+                    </ul>
+                </div>
+            </div> 
+        </div>  
     </div>
     
     <div class="main">
@@ -32,10 +38,10 @@
         <div class="well">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
-                    <h2>The Fastest Way to Space</h2>
+                    <h1 class="h2">The Fastest Way to Space</h1>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime qui ducimus earum esse numquam quia dolore nobis quibusdam doloremque! Perspiciatis ducimus excepturi beatae qui ea, laudantium pariatur non corporis repudiandae.</p>
-                    <a href="#" class="btn btn-default">Take a tour!</a>
-                    <a href="#" class="btn btn-primary">Buy tickets now</a>
+                    <a href="tour.html" class="btn btn-default">Take a tour!</a>
+                    <a href="buy.html" class="btn btn-primary">Buy tickets now</a>
                 </div>
                 <div class="hidden-xs col-sm-6">
                     <img src="./img/Guinea-pig.jpg" alt="cobayita" class="img-responsive">
@@ -43,17 +49,18 @@
             </div>
         </div>
         <div class="row text-center features">
-            <div class="col-xs-12 col-sm-4">
+
+            <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0">
                     <span class="glyphicon glyphicon-briefcase"></span>
                     <h3>Book Today!</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, numquam eius velit asperiores necessitatibus blanditiis consequuntur! Assumenda atque eaque necessitatibus soluta ipsum, incidunt eveniet. Tempore in veritatis repudiandae fugit quasi!</p>
             </div>
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-6 col-sm-4">
                     <span class="glyphicon glyphicon-random"></span>
                     <h3>Go Anywhere</h3>
                     <p>Porro, delectus iure blanditiis! Dolore praesentium laboriosam iusto ipsum quis, dolorem quas officiis dolores sunt similique consequatur temporibus molestiae sed quisquam molestias laudantium est at illo architecto, reiciendis officia? A!</p>
             </div>
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-6 col-sm-4">
                     <span class="glyphicon glyphicon-send"></span>
                     <h3>RocketBus&reg;</h3>
                     <p>Saepe, blanditiis repellat assumenda commodi dignissimos perferendis, qui dicta non! Sed vero optio in, quisquam veritatis? Vero et enim, voluptate repellat minima perferendis quia tenetur quis, dicta tempora velit neque!</p>
@@ -73,9 +80,9 @@
     <div class="col-xs-12 col-sm-6 col-md-2">
         <h4>Links</h4>
         <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#">Tickets</a></li>
-            <li><a href="#">Buy</a></li>
+            <li><a href="buy.html">Buy</a></li>
         </ul>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-2">
@@ -103,5 +110,7 @@
     <div class="volver">
         <a href="../index.html">Volver</a>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
