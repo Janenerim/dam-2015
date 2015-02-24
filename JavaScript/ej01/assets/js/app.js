@@ -6,7 +6,10 @@
         var ok = false;
                
         if ((/^\d{8}[A-Z]$/).test(dni)){
-        /*if (dni.match(/^\d{8}[A-Z]$/)){*/
+        /*if (dni.match(/^\d{8}[A-Z]$/)){
+            con dni.match, si dni esta vacio, es undefined, o una funcion... 
+            petaría porque match pertenece a los strings.
+        */
             if ((letras[parseInt(dni) % 23] == dni[8].toUpperCase())){
                 console.log("La letra del DNI no es correcta.");
                 ok = true;
