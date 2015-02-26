@@ -25,6 +25,10 @@ input[type="submit"] {
     display: block;
 }
 
+.error{
+    border-color:rgb(255,0,0);
+    background-color:rgba(255, 0,0,0.7);
+}
 
 /*añadido para poder navegar por los ejercicios*/
 .volver{
