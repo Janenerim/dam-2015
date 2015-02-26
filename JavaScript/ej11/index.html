@@ -12,12 +12,12 @@
     <form action="servidor.php" method="POST" id="registro">
         <fieldset>
             <legend>Registro</legend>
-            <label for="registro_nombre">Nombre:</label><input type="text" name="nombre" id="registro_nombre" class="required">
-            <label for="registro_apellidos">Apellido:</label><input type="text" name="apellido" id="registro_apellido" class="required">
-            <label for="registro_email">Email:</label><input type="text" name="email" id="registro_email" class="required email">
-            <label for="registro_password">Password:</label><input type="password" name="password" id="registro_password" class="required password">
-            <label for="registro_comentarios">Comentarios:</label><textarea name="comentarios" id="registro_comentarios" rows="10" class="longmax50"></textarea>
-            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1"><label for="registro_condiciones">Acepto las condiciones del servicio.</label>
+            <label for="registro_nombre">Nombre:</label><input type="text" name="nombre" id="registro_nombre" class="required validateonblur">
+            <label for="registro_apellidos">Apellido:</label><input type="text" name="apellido" id="registro_apellido" class="required validateonblur">
+            <label for="registro_email">Email:</label><input type="text" name="email" id="registro_email" class="required email validateonblur">
+            <label for="registro_password">Password:</label><input type="password" name="password" id="registro_password" class="required password validateonblur">
+            <label for="registro_comentarios">Comentarios:</label><textarea name="comentarios" id="registro_comentarios" rows="10" class="longmax50 validateonblur"></textarea>
+            <input type="checkbox" name="condiciones" id="registro_condiciones" value="1" class="required validateonblur"><label for="registro_condiciones">Acepto las condiciones del servicio.</label>
             <input type="submit" value="Enviar">
         </fieldset>
     </form>

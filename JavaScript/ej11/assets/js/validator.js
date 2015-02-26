@@ -8,10 +8,18 @@ HTMLFormElement.prototype.validate = function(){
             if (val){
                 var required = val.querySelectorAll(".required");
                 ok = true;
-                var err = "";
+                var err [];
                 for (var i = required.length -1; i>=0; i--){
-                    if (required[i].value.split().join()  === ""){
-                        err += required[i].name + ", ";
+                    if (required[i].type === 'checkbox'){
+                        if (!required[i].checked){
+                            err.push(required[i].name);
+                            if(!required[i].classList.contains('error')){
+                                required[i].classList.add('error');
+                            }
+                        }
+                    }
+                    else if (required[i].value.split().join()  === ""){
+                        err.push(required[i].name);
                         if(!required[i].classList.contains('error')){
                             required[i].classList.add('error');
                         }
@@ -181,6 +189,12 @@ HTMLFormElement.prototype.validate = function(){
     };
 
     this.addEventListener('submit', validate, false);
-    this.addEventListener('blur', validate, false);
+    var valid = this.querySelectorAll('validateonblur');
+    if (valid){
+        for (var i = valid.length -1; i>=0; i--){
+            valid[i].addEventListener('blur', validate, false);
+        }
+    }
+    //this.addEventListener('blur', validate, false);
 
 };
