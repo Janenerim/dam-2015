@@ -1,8 +1,7 @@
 window.onload = function(){
 
-    console.log("creando objetos");
     var loaded = false,
-        video = document.querySelectorAll('videorep'),
+        video = document.querySelectorAll('.videorep'),
         biniciar = document.getElementById('Iniciar'),
         bpausar = document.getElementById('Pausar'),
         bparar = document.getElementById('Parar'),
@@ -75,6 +74,7 @@ window.onload = function(){
         }
     };
     var canplay = function(e){
+        console.log ('canplay detectado');
         loaded = true;
         bvolumen.value = video[0].volume*100;
         bprogreso.value = 0;
@@ -107,7 +107,7 @@ window.onload = function(){
     };
     console.log("añadiendo eventos");
     if (video.length){
-        video[0].addEventListener('canplay', canplay, false);
+        video[0].addEventListener('canplay', canplay, true);
         video[0].addEventListener('click', playpausefunc, false);
         video[0].addEventListener('timeupdate', mprogreso, false);
         console.log("añadiendo eventos click, canplay y timeupdate");
@@ -115,39 +115,30 @@ window.onload = function(){
 
     if (biniciar){
         biniciar.addEventListener('click', iniciar,false);
-        console.log("añadiendo eventos click al boton play");
     }
     if (bpausar){
         bpausar.addEventListener('click', pausar,false);
-        console.log("añadiendo eventos click al boton pausa");
     }
     if (bparar){
         bparar.addEventListener('click', parar,false);
-        console.log("añadiendo eventos click al boton parar");
     }
     if (bavanzar){
         bavanzar.addEventListener('click', avanzar,false);
-        console.log("añadiendo eventos click al boton avanzar");
     }
     if (bretroceder){
         bretroceder.addEventListener('click', retroceder,false);
-        console.log("añadiendo eventos click al boton retroceder");
     }
     if (binicio){
         binicio.addEventListener('click', inicio,false);
-        console.log("añadiendo eventos click al boton inicio");
     }
     if (bfin){
         bfin.addEventListener('click', fin,false);
-        console.log("añadiendo eventos click al boton fin");
     }
     if (bfullscreen){
         bfullscreen.addEventListener('click', fullScreen,false);
-        console.log("añadiendo eventos click al boton fullscreen");
     }
     if (bvolumen){
         bvolumen.addEventListener('input', mvolumen, false);
-        console.log("añadiendo eventos click al boton volumen");
     }
 };
 
