@@ -21,20 +21,18 @@
 */
     
     var tweet = {
-        id : '250075927172759554',
+        id : '250075927172759552',
         text: 'Aggressive Ponytail #freebandnames',
         author: 'Sean Cummings',
         created_at:''
     };
 
+    APP.DB.insert(tweet);
+
     var success = function(datos){
         console.log (datos);
     };
 
-    APP.DB.insert(tweet);
-    APP.DB.get(tweet.id, function(t){
-        console.log(t);
-    });
     APP.DB.getAll(success);
 
 })();

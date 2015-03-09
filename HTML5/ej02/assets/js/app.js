@@ -61,7 +61,7 @@ window.onload = function(){
         }    
     };
     var fullScreen = function(e){
-
+        video.requestFullScreen();
     };
     var mvolumen = function(e){
         if (video.length && loaded){

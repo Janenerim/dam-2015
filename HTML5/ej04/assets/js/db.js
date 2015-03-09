@@ -1,5 +1,5 @@
-var App = App || {} ;
-App.DB = (function() {
+var APP = APP || {} ;
+APP.DB = (function() {
     /*Variables privadas*/
     var db,
         cfg = {
@@ -63,9 +63,27 @@ App.DB = (function() {
             });
         });
     };
+
+    var get = function(id, success){
+        db.transaction(function(tx){
+            var sql = "SELECT * FROM tweets WHERE id = ?";
+            tx.executeSql(sql, [id],function(tx, results){
+                var datos = [];
+
+                for (var i = results.rows.length - 1; i >= 0; i--) {
+                    datos.push(results.rows.item(i));
+                }
+                success (datos);
+            },function(tx, error){
+                console.log(error);
+            });
+        });
+    };
+
     return{
         insert : insert,
-        getAll : getAll
+        getAll : getAll,
+        get    : get
     };
 
 })();
