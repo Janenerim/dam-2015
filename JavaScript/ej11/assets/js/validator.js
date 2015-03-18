@@ -8,7 +8,7 @@ HTMLFormElement.prototype.validate = function(){
             if (val){
                 var required = val.querySelectorAll(".required");
                 ok = true;
-                var err [];
+                var err = [];
                 for (var i = required.length -1; i>=0; i--){
                     if (required[i].type === 'checkbox'){
                         if (!required[i].checked){
@@ -29,7 +29,7 @@ HTMLFormElement.prototype.validate = function(){
                     ok = true;
                 }
                 else{
-                    ok = err.split(", ");
+                    ok = err;
                 }
             }
             return ok;
@@ -45,8 +45,8 @@ HTMLFormElement.prototype.validate = function(){
                 for (var i = email.length -1; i>=0; i--){
                     if (!expreg.test(email[i].value)){
                         err = "La dirección de email: "+ email[i].value +" no es correcta";
-                        if(!required[i].classList.contains('error')){
-                            required[i].classList.add('error');
+                        if(!email[i].classList.contains('error')){
+                            email[i].classList.add('error');
                         }
                     }
                 }
@@ -62,8 +62,8 @@ HTMLFormElement.prototype.validate = function(){
                 for (var i = longmax.length -1; i>=0; i--){
                     if (longmax[i].value.length>50){
                         err = "El máximo numero de caracteres en comentarios es de 50.";
-                        if(!required[i].classList.contains('error')){
-                            required[i].classList.add('error');
+                        if(!longmax[i].classList.contains('error')){
+                            longmax[i].classList.add('error');
                         }
                     }
                 }
@@ -86,8 +86,8 @@ HTMLFormElement.prototype.validate = function(){
                         expregmayuscula.test(password[i].value) &&
                         expregminuscula.test(password[i].value))){
                         err = "El password debe tener una longitud mínima de 6 caracteres, y contener al menos una letra minúscula, una letra mayúscula y un dígito";
-                        if(!required[i].classList.contains('error')){
-                            required[i].classList.add('error');
+                        if(!password[i].classList.contains('error')){
+                            password[i].classList.add('error');
                         }
                     }
                 }

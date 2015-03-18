@@ -33,15 +33,7 @@ function Profesor (nombre, edad, genero, asignatura, nivel){
     };
 }
 
-    console.log(validarDNI("45671330T") === true);
-    console.log(validarDNI("23HSJDJET") === false);
-    console.log(validarDNI("45671329E") === true);
-    console.log(validarDNI("45671379A") === true);
-    console.log(validarDNI("123456789A") === false);
-    console.log(validarDNI("999999999A") === false);
-    console.log(validarDNI("A") === false);
-    console.log(validarDNI(undefined) === false);
-    console.log(validarDNI({}) === false);
+
 
 })();
 

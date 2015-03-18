@@ -1,5 +1,6 @@
 $(function(){
-    var $ticker = $('#ticker');
+    var $ticker = $('#ticker'),
+        $detener = $('#detener');
 
     //Metodo generalista para llamar a ajax.
     //$.ajax();
@@ -72,8 +73,17 @@ $(function(){
         });
     };
 
-    setInterval(peticionAJAX, 1000);
+    var interval = setInterval(peticionAJAX, 1000);
+    /*para parar el intervalo, al pulsar el boton.*/
+    $detener.on ('click', function(e){
+        clearinterval(interval);
+    });
 
+    /*Suponiendo que tuvieramos un boton para activarlo de nuevo:
+    $play.on ('click', function(e){
+        interval = setInterval(peticionAJAX, 1000);
+    });
+    */
     /*Otra manera de hacer la funcion de peticionAJAX (en este caso) de forma más directa es:
     var peticionAJAX = function(){
         $get('../servidor/generaContenidos.php', null, function(data){

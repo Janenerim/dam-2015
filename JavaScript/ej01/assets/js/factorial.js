@@ -1,4 +1,3 @@
-(function() {
     var factorial = function(num) {
         var ok = false;
         if(parseInt(num) && (parseInt(num) === num) && num < 100000){
@@ -12,7 +11,6 @@
         else{
             console.log ("Debes introducir un número menor de 100000");
         }
-        return ok;
     };
     console.log(factorial(1) === true);
     console.log(factorial(2) === true);
