@@ -1,7 +1,7 @@
 window.onload = function(){
 
     var loaded = false,
-        video = document.querySelectorAll('.videorep'),
+        video = document.getElementById('videorep'),
         biniciar = document.getElementById('Iniciar'),
         bpausar = document.getElementById('Pausar'),
         bparar = document.getElementById('Parar'),
@@ -9,83 +9,89 @@ window.onload = function(){
         bretroceder = document.getElementById('Retroceder'),
         binicio = document.getElementById('Inicio'),
         bfin = document.getElementById('Fin'),
-        bfullscreen = document.getElementById('FullScreen'),
+        bfullscreen = document.getElementById('fullscreen'),
         bvolumen = document.getElementById('Volumen'),
         bprogreso = document.getElementById('Progreso'),
-        playlist = document.querySelectorAll('#tracklist');
+        playlist = document.getElementById('tracklist');
 
     var posvideo = 0;
     var volumen = 0;
 
+    var canplayF = function(e){
+        console.log ('canplay detectado');
+        loaded = true;
+        bvolumen.value = video.volume*100;
+        bprogreso.value = 0;
+    };
+    var playPauseFn = function(e) {
+        if (loaded) {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    };
     var iniciar = function(e){
         e.preventDefault();
-        if (video.length && loaded){
-            video[0].play();
+        if (video && loaded){
+            video.play();
         }
     };
     var pausar = function(e){
         e.preventDefault();
-        if (video.length && loaded){
-            video[0].pause();
+        if (video && loaded){
+            video.pause();
         }
     };
     var parar = function(e){
         e.preventDefault();
-         if (video.length && loaded){
-            video[0].pause();
-            video[0].currentTime = 0;
+         if (video && loaded){
+            video.pause();
+            video.currentTime = 0;
         }
     };
     var avanzar = function(e){
         e.preventDefault();
-        if (video.length && loaded){
-            video[0].currentTime += 10;
+        if (video && loaded){
+            video.currentTime += 10;
         }
     };
     var retroceder = function(e){
         e.preventDefault();
-        if (video.length && loaded){
-            video[0].currentTime -= 10;
+        if (video && loaded){
+            video.currentTime -= 10;
         }
     };
     var inicio = function(e){
         e.preventDefault();
-        if (video.length && loaded){
-            video[0].currentTime = 0;
+        if (video && loaded){
+            video.currentTime = 0;
         }
     };
     var fin = function(e){
         e.preventDefault();
-        if (video.length && loaded){
-            video[0].currentTime = video[0].duration;
+        if (video && loaded){
+            video.currentTime = video.duration;
         }    
     };
-    var fullScreen = function(e){
-        video.requestFullScreen();
-    };
+
     var mvolumen = function(e){
-        if (video.length && loaded){
-            video[0].volume =  bvolumen.value/100;
+        if (video && loaded){
+            video.volume =  this.value/100;
         }
     };
     var mprogreso = function(e){
-        if (loaded && video.length && bprogreso){
-            bprogreso.value = video[0].currentTime / video[0].duration *100;
+        if (loaded && video && bprogreso){
+            bprogreso.value = video.currentTime / video.duration *100;
         }
     };
-    var canplay = function(e){
-        console.log ('canplay detectado');
-        loaded = true;
-        bvolumen.value = video[0].volume*100;
-        bprogreso.value = 0;
-    };
     var playpausefunc = function(e){
-        if (video.length && loaded){
-            if (video[0].played){
-                video[0].pause();
-            }
-            else{
-                video[0].play();
+        if (video && loaded){
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
             }
         }
     };
@@ -101,15 +107,17 @@ window.onload = function(){
         else{
             ext = ".webm";
         }
-        if (video.length && loaded){
-            video[0].src = src + ext;
-            }
+        if (video && loaded){
+            video.src = src + ext;
+        }
+        video.load();
+        video.play();
     };
     console.log("añadiendo eventos");
-    if (video.length){
-        video[0].addEventListener('canplay', canplay, true);
-        video[0].addEventListener('click', playpausefunc, false);
-        video[0].addEventListener('timeupdate', mprogreso, false);
+    if (video){
+        video.addEventListener('canplay', canplayF, true);
+        video.addEventListener('click', playpausefunc, false);
+        video.addEventListener('timeupdate', mprogreso, false);
         console.log("añadiendo eventos click, canplay y timeupdate");
     }
 
@@ -134,11 +142,34 @@ window.onload = function(){
     if (bfin){
         bfin.addEventListener('click', fin,false);
     }
-    if (bfullscreen){
-        bfullscreen.addEventListener('click', fullScreen,false);
-    }
     if (bvolumen){
         bvolumen.addEventListener('input', mvolumen, false);
+    }
+    if (tracklist){
+        tracklist.addEventListener('click', changeVideo, false);
+    }
+    if (bfullscreen){
+        bfullscreen.addEventListener('click', fullScreenclick, false);
+    }
+
+    var fullScreenclick = function (e){
+        console.log("fullScreen pulsado");
+        dofullScreen();
+        console.log("ejecutado dofullScreen()");
+    }
+
+    function dofullScreen (){
+        var isInFullScreen = (document.fullScreenElement && document.fullScreenElement !== null) ||
+                             (document.mozFullScreen || document.webkitIsFullScreen);
+        if (!isInFullScreen){
+            if (video.requestFullScreen){
+                video.requestFullScreen();
+            }else if (video.mozRequestFullScreen){
+                video.mozRequestFullScreen();
+            }else if (video.webkitRequestFullScreen){
+                video.webkitRequestFullScreen();
+            }
+        }
     }
 };
 
